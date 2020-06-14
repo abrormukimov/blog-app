@@ -1,5 +1,16 @@
 <h1>Create an article</h1>
 
+<% if @article.errors.any? %>
+	<h2>The following errors occur </h2>
+	<%= @article.errors.full_messages.each do |msg| %>
+		<ul>
+			<li>
+				<%= msg %>
+			</li>
+		</ul>
+	<% end %>
+<% end %>
+
 <%= form_for @article do |f| %>
 	<p>
 		<%= f.label :title %><br/>
