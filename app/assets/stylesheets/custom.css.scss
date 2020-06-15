@@ -3,6 +3,10 @@ $navbar-default-bg: #111;
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+html {
+	overflow-x: hidden;
+}
+
 .my-logo.color-changer {
 	float: left;
 	font-size: 1.7em;
