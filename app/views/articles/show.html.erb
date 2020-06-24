@@ -21,8 +21,10 @@
 	<hr>
 	<%= simple_format(@article.description) %>
 	<div class="article-actions">
-		<%= link_to "Edit", edit_article_path(@article), class: "btn btn-xs btn-primary" %>
-		<%= link_to "Delete", article_path(@article), method: :delete, data: { confirm: "Would you like to delete?" }, class: "btn btn-xs btn-danger" %>
-		<%= link_to "View all articles", articles_path, class: "btn btn-xs btn-success" %>
+		<% if logged_in? && current_user == @article.user %>
+			<%= link_to "Edit", edit_article_path(@article), class: "btn btn-xs btn-primary" %>
+			<%= link_to "Delete", article_path(@article), method: :delete, data: { confirm: "Would you like to delete?" }, class: "btn btn-xs btn-danger" %>
+		<% end %>
+			<%= link_to "View all articles", articles_path, class: "btn btn-xs btn-success" %>
 	</div>
 </div>
